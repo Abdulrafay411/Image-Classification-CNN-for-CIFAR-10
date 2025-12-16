@@ -1,47 +1,90 @@
-# 🖼️ CIFAR-10 Image Classification with CNN
+# 🖼️ Image Classification using CNN (Deep Learning)
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)
 ![Keras](https://img.shields.io/badge/Keras-Deep%20Learning-red.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Dataset](https://img.shields.io/badge/Dataset-CIFAR--10-green.svg)
 
 ## 📖 Overview
 
-This project implements a **Convolutional Neural Network (CNN)** using TensorFlow and Keras to classify images from the famous **CIFAR-10 dataset**. The model is trained to recognize 10 different categories of objects with an accuracy of approximately **73%** on the test set.
+This project demonstrates image classification using a Convolutional Neural Network (CNN) built with TensorFlow and Keras.  
+The model is trained on the CIFAR-10 dataset, a popular benchmark dataset for computer vision tasks.
 
-This repository demonstrates the end-to-end workflow of a computer vision project, including data preprocessing, model architecture design, training, and visualization of results.
+The CNN automatically learns spatial features from images and classifies them into one of ten predefined object categories.
 
-## 📂 Dataset
+## 📂 Dataset Information
 
-The **CIFAR-10** dataset consists of 60,000 32x32 color images in 10 classes, with 6,000 images per class. There are 50,000 training images and 10,000 test images.
+The project uses the built-in CIFAR-10 dataset available in Keras.
 
-**Classes:**
-`Airplane`, `Automobile`, `Bird`, `Cat`, `Deer`, `Dog`, `Frog`, `Horse`, `Ship`, `Truck`.
+- Dataset Name: CIFAR-10  
+- Total Images: 60,000  
+  - Training Images: 50,000  
+  - Testing Images: 10,000  
+- Image Resolution: 32 × 32 pixels  
+- Color Channels: RGB (3 channels)  
+- Number of Classes: 10  
 
-## 🛠️ Technologies Used
+### Class Labels
 
-* **Python**: Core programming language.
-* **TensorFlow / Keras**: For building and training the neural network.
-* **NumPy**: For numerical matrix operations.
-* **Matplotlib**: For visualization of images and training history.
+Airplane, Automobile, Bird, Cat, Deer,  
+Dog, Frog, Horse, Ship, Truck
+
+## 🛠️ Technologies & Libraries
+
+- Python – Core programming language  
+- TensorFlow / Keras – Used to build and train the CNN model  
+- NumPy – Numerical operations and array handling  
+- Matplotlib – Visualization of images and training metrics  
+- Scikit-learn – Model evaluation utilities  
 
 ## 🧠 Model Architecture
 
-The model is built using the Keras `Sequential` API and consists of the following layers:
+The CNN model is built using the Keras Sequential API and consists of the following layers:
 
-1.  **Convolutional Layers**: Multiple `Conv2D` layers with `ReLU` activation to extract features (edges, textures, patterns).
-2.  **Pooling Layers**: `MaxPooling2D` layers to downsample the spatial dimensions and reduce computation.
-3.  **Flatten Layer**: Converts the 2D feature maps into a 1D vector.
-4.  **Dense Layers**: Fully connected layers for classification.
-5.  **Output Layer**: A Dense layer with 10 units and `Softmax` activation to output probabilities for the 10 classes.
+1. Convolutional Layer – Feature extraction  
+2. Max Pooling Layer – Spatial down-sampling  
+3. Convolutional Layer – Deeper feature learning  
+4. Max Pooling Layer – Further dimensionality reduction  
+5. Flatten Layer – Converts feature maps to a vector  
+6. Dense Layer – Fully connected neural layer  
+7. Output Layer – Softmax activation for multi-class classification  
 
-```python
-# Summary of the architecture used:
-model = models.Sequential([
-    layers.Conv2D(32, (3,3), activation='relu', input_shape=(32,32,3)),
-    layers.MaxPooling2D((2,2)),
-    # ... multiple Conv/Pool layers ...
-    layers.Flatten(),
-    layers.Dense(128, activation='relu'),
-    layers.Dense(10, activation='softmax')
-])
+### Compilation Details
+
+- Optimizer: Adam  
+- Loss Function: Sparse Categorical Crossentropy  
+- Metrics: Accuracy  
+
+## 📊 Training & Results
+
+- Batch Size: 32  
+- Epochs: 10  
+- Training/Test Split: 50,000 / 10,000  
+
+### Performance Evaluation
+
+The model’s accuracy and loss are plotted across training epochs.  
+Final performance is evaluated using unseen test data.
+
+### Sample Predictions
+
+The trained model predicts class labels for test images and compares them with the actual labels.
+
+## 🚀 How to Run
+
+1. Clone the repository
+   git clone https://github.com/YOUR_USERNAME/Image-Classification-CNN-for-CIFAR-10.git
+   cd Image-Classification-CNN-for-CIFAR-10
+
+2. Install dependencies
+   pip install numpy matplotlib tensorflow scikit-learn
+
+3. Run the notebook
+   jupyter notebook Image-Classification-CNN-for-CIFAR-10.ipynb
+
+
+
+## 🤝 Contributing
+
+Contributions are welcome.  
+Feel free to fork the repository, make improvements, and submit a pull request.
